@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Vue CDN</title>
+    
+</head>
+<body>
+
+    <div id="app">
+        <p>{{ message }}</p>
+        <p>reverse: {{reversedMessage}}</p>
+
+        <button v-on:click="changeName('dyasss')">Change</button>
+        <button v-on:click="changeName2">Change</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello'
+            },
+            methods: {
+                changeName: function(name) {
+                    this.message = name
+                },
+                changeName2: function() {
+                    this.message = 'Dyasss'
+                }
+            },
+            computed: {
+                reversedMessage: function() {
+                    return this.message.split('').reverse().join('')
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>
